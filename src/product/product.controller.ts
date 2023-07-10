@@ -1,8 +1,8 @@
 import { Body, Controller, Get, Inject, OnModuleInit, Param, ParseIntPipe, Post, UseGuards } from '@nestjs/common';
 import { CreateProductRequest, CreateProductResponse, FindOneResponse, PRODUCT_SERVICE_NAME, ProductServiceClient } from './product.pb';
 import { ClientGrpc } from '@nestjs/microservices';
-import { AuthGuard } from 'src/auth/auth.guard';
 import { Observable } from 'rxjs';
+import { AuthGuard } from '../auth/auth.guard';
 
 @Controller('product')
 export class ProductController implements OnModuleInit {

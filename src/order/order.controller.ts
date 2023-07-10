@@ -19,10 +19,12 @@ export class OrderController implements OnModuleInit {
     @Post()
     @UseGuards(AuthGuard)
     private async createOrder(@Req() req: Request): Promise<Observable<CreateOrderResponse>> {
+        
         const body: CreateOrderRequest = req.body;
 
-        // body.userId = <number>req.user;
+        body.userId = <number>req.body.user;
+        const { productId, userId, quantity } = body;
 
-        return this.svc.createOrder(body);
+        return this.svc.createOrder({productId, userId, quantity});
     }
 }
